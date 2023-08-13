@@ -1,0 +1,26 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Welcome{% endblock %}
+
+{% block content %}
+<h1 class=" inline-block mb-8 py-4 px-6 bg-blue-900 text-white rounded-xl hover:bg-blue-600">Welcome to Zago Links | Click the Button Below</h1>
+
+<h2>Buy Now</h2>
+<form action="{% url 'core:charge' %}" method="post">
+    {% csrf_token %}
+    <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+        data-key="{{ key }}"
+        data-description="Buy Now"
+        data-amount="100"
+        data-locale="auto">
+    </script>
+</form>
+    
+
+
+
+<div class="py-20 px-6 bg-teal-700 text-center">
+    <h1 class="mb-12 text-5xl text-white">Checkout Your Favourite Websites</h1>
+    <a href="{% url 'link:create_category' %}" class="inline-block py-4 px-8 bg-teal-900 text-white rounded-xl hover:bg-teal-200">Get Started</a>
+</div>
+{% endblock %}

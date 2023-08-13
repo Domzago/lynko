@@ -1,0 +1,29 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Categories{% endblock %}
+
+{% block content %}
+    
+    
+    <a href="{% url 'link:create_category' %}" class=" inline-block mb-8 py-4 px-6 bg-cyan-600 text-white rounded-xl hover:bg-cyan-900">Category Page</a>
+
+    <div class="grid grid-cols-3 gap-3">
+        {% for category in categories %}
+            <div class="bg-gray-100 p-6 rounded-xl">
+                <h2 class="mb-4 text-xl">{{ category.name }}</h2>
+
+                <a href="{% url 'link:links' %}?category{{ category.id }}" class="text-teal-700">View</a>
+                    |
+                <a href="{% url 'link:edit_category' category.id %}" class="text-blue-700">Edit</a>
+                    |
+                <a href="{% url 'link:delete_category' category.id %}" class="text-rose-700">Delete</a>
+            </div>
+        {% endfor %}
+    </div>
+
+
+    <div class="py-20 px-6 bg-teal-700 text-center">
+        <h1 class="mb-12 text-5xl text-white">Categories of the page</h1>
+        <a href="{% url 'link:create_link' %}" class="inline-block py-4 px-8 bg-teal-900 text-white rounded-xl hover:bg-teal-200">Get Started</a>
+    </div>
+{% endblock %}

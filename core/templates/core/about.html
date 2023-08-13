@@ -1,0 +1,12 @@
+{% extends 'core/base.html' %}
+
+{% block title %}About{% endblock %}
+
+{% block content %}
+<h1 class=" inline-block mb-8 py-4 px-6 bg-blue-900 text-white rounded-xl hover:bg-blue-400">Welcome to the About Page</h1>
+
+    <div class="py-20 px-6 bg-teal-700 text-center">
+        <h1 class="mb-12 text-5xl text-white">Learn About Us</h1>
+        <a href="{% url 'link:create_link' %}" class="inline-block py-4 px-8 bg-teal-900 text-white rounded-xl hover:bg-teal-200">Get Started</a>
+    </div>
+{% endblock %}
